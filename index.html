@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodpark Vendor Dashboard</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: #2ecc71;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .sidebar h1 {
+            margin-top: 0;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .main {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .main h1 {
+            margin-top: 0;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .card h2 {
+            margin-top: 0;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #2ecc71;
+            color: #fff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h1>Dashboard</h1>
+            <ul>
+                <li><a href="#account-settings">Account Settings</a></li>
+                <li><a href="#business-settings">Business Settings</a></li>
+                <li><a href="#vendor-dashboard-settings">Vendor Dashboard Settings</a></li>
+                <li><a href="#integration-settings">Integration Settings</a></li>
+                <li><a href="#other-features">Other Features</a></li>
+            </ul>
+        </div>
+        <div class="main">
+            <h1>Foodpark Vendor Dashboard</h1>
+            <div class="card" id="account-settings">
+                <h2>Account Settings</h2>
+                <p>Update profile information, manage password security, and set notification preferences.</p>
+            </div>
+            <div class="card" id="business-settings">
+                <h2>Business Settings</h2>
+                <p>Manage operating hours, menu items, payment options, and promotions.</p>
+            </div>
+            <div class="card" id="vendor-dashboard-settings">
+                <h2>Vendor Dashboard Settings</h2>
+                <p>Track orders, view analytics, manage reviews, and control inventory.</p>
+            </div>
+            <div class="card" id="integration-settings">
+                <h2>Integration Settings</h2>
+                <p>Integrate with delivery platforms, POS systems, and marketing tools.</p>
+            </div>
+            <div class="card" id="other-features">
+                <h2>Other Features</h2>
+                <p>Access help center, provide feedback, and set language preferences.</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2023 Foodpark. All rights reserved.</p>
+    </div>
+</body>
+</html>

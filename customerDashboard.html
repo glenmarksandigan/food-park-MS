@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Delivery UI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            display: flex;
+            background: #abf3b0;
+            height: 100vh;
+        }
+        
+        .sidebar {
+            width: 80px;
+            background: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .sidebar a {
+            text-decoration: none;
+            color: black;
+            text-align: center;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px; /* Add padding for better click area */
+            border-radius: 5px; /* Rounded corners */
+        }
+
+        .sidebar a.active {
+            background-color: blue; /* Active background color */
+            color: white; /* Change text color when active */
+        }
+        
+        .sidebar img {
+            width: 30px;
+            margin-bottom: 2px;
+            margin-top: 20px;
+        }
+        
+        .sidebar p {
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        
+        .content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        .section {
+            display: none;
+            text-align: center;
+            font-size: 24px;
+        }
+        
+        .active {
+            display: block;
+        }
+        
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            width: 200px;
+        }
+        
+        .item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .item:last-child {
+            border-bottom: none;
+        }
+        
+        .action-btn {
+            width: 100%;
+            padding: 10px;
+            background: #02bb40;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .action-btn:hover {
+            background: orangered;
+        }
+
+        .save-btn {
+            width: 100%;
+            padding: 10px;
+            background: #02bb40;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .save-btn:hover {
+            background-color: orangered;
+            color: white;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 60px;
+                padding: 10px;
+            }
+
+            .sidebar a {
+                font-size: 10px;
+            }
+
+            .content {
+                flex-direction: column;
+            }
+        }
+
+        h1 {
+            margin-top: 180px;
+            margin-bottom: 50px;
+        }
+
+        .top-bar {
+            position: absolute;
+            top: 20px;
+            right: 50px; 
+            display: flex; 
+            gap: 10px; 
+        }
+
+        .top-bar img {
+            width: 20px; 
+            height: 20px; 
+            cursor : pointer; 
+        }
+
+        .top-bar .active {
+            background-color: blue; 
+            border-radius: 5px; 
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            color: #ff0606;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            top: 125%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="sidebar">
+        <a onclick="showSection('home', this)">
+            <img src="https://cdn-icons-png.flaticon.com/128/1946/1946488.png" alt="Home">
+            <p>Home</p>
+        </a>
+        <a onclick="showSection('cart', this)">
+            <img src="https://cdn-icons-png.flaticon.com/128/833/833314.png" alt="Cart">
+            <p>Cart</p>
+        </a>
+        <a onclick="showSection('order', this)">
+            <img src="https://cdn-icons-png.flaticon.com/128/411/411768.png" alt="Order">
+            <p>Order</p>
+        </a>
+        <a onclick="showSection('status', this)">
+            <img src="https://cdn-icons-png.flaticon.com/128/12515/12515695.png" alt="Status">
+            <p>Status</p>
+        </a>
+        <a onclick="showSection('favorite', this)">
+            <img src="https://cdn-icons-png.flaticon.com/128/985/985709.png" alt="Favorite">
+            <p>Favorite</p>
+        </a>
+        <a onclick="showSection('settings', this)">
+            <img src="https://cdn-icons-png.flaticon.com/128/2040/2040504.png" alt="Settings">
+            <p>Settings</p>
+        </a>
+    </div>
+    
+    <div class="content">
+        <div id="home" class="section active">Welcome My World</div>
+        <div id="cart" class="section">
+            <div class="container">
+                <h3>Your Cart</h3>
+                <div id="cart-items"></div>
+                <p id="empty-cart-message" style="text-align:center; color:gray;">Your cart is empty</p>
+                <button class="action-btn" id="checkout-btn" style="display:none;">Checkout</button>
+            </div>
+        </div>
+        
+        <div id="order" class="section">
+            <div class="container">
+                <h3>Your Orders</h3>
+                <div id="order-items"></div>
+                <p id="empty-order-message" style="text-align:center; color:gray;">You have no orders yet</p>
+            </div>
+        </div>
+        
+        <div id="status" class="section">
+            <div class="container">
+                <h3>Order Status</h3>
+                <div id="status-items"></div>
+                <p id="empty-status-message" style="text-align:center; color:gray;">No order status available</p>
+            </div>
+        </div>
+        
+        <div id="favorite" class="section">
+            <div class="container">
+                <h3>Favorites</h3>
+                <div id="favorite-items"></div>
+                <p id="empty-favorite-message" style="text-align:center; color:gray;">No favorite items added</p>
+            </div>
+        </div>
+
+        <div id="settings" class="section">
+            <main class="settings">
+                <h1>Settings</h1>
+                
+                <div class="edit-profile">
+                    <h2>Edit Profile</h2>
+                    <form id="profileForm">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" placeholder="Your Name" required>
+                        
+                        <label for="email">Address</label>
+                        <input type="text" id="email" placeholder="Address" required>
+                        
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Email" required>
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" placeholder="Phone" required>
+                        <label for="address">Address</label>
+                        <textarea id="address" placeholder="Address" required></textarea>
+                    </form>
+                </div>
+                
+                <div class="change-password">
+                    <h2>Change Password</h2>
+                    <form id="passwordForm">
+                        <label for="currentPassword">Current Password</label>
+                        <input type="password" id="currentPassword" placeholder="Current Password" required>
+                        <label for="newPassword">New Password</label>
+                        <input type="password" id="newPassword" placeholder="New Password" required>
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+                    </form>
+                </div>
+                
+                <button class="save-btn" onclick="saveSettings()">Save</button>
+                <div class="top-bar">
+                    <div class="tooltip">
+                        <img src="https://cdn-icons-png.flaticon.com/128/3602/3602123.png" alt="Notifications" onclick="showNotifications(this)">
+                        <span class="tooltiptext">Notifications</span>
+                    </div>
+                    <div class="tooltip">
+                        <img src="https://cdn-icons-png.flaticon.com/128/11873/11873991.png" alt="Logout" onclick="logout(this)">
+                        <span class="tooltiptext">Logout</span>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <script>
+        function updateUI(sectionId, items, emptyMessageId, containerId, itemTemplate) {
+            let container = document.querySelector("#" + containerId);
+            let emptyMessage = document.querySelector("#" + emptyMessageId);
+    
+            if (items.length === 0) {
+                emptyMessage.style.display = "block";
+                container.innerHTML = "";
+            } else {
+                emptyMessage.style.display = "none";
+                container.innerHTML = items.map(itemTemplate).join('');
+            }
+        }
+
+        function saveSettings() {
+            alert('Settings Saved!');
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            let cartItems = []; 
+            let orders = []; 
+            let statuses = []; 
+            let favorites = []; 
+    
+            updateUI("cart", cartItems, "empty-cart-message", "cart-items", item => `<div class="item"><span>${item.name}</span><span>$${item.price}</span></div>`);
+            updateUI("order", orders, "empty-order-message", "order-items", item => `<div class="item"><span>Order #${item.id}</span><span>${item.status}</span></div>`);
+            updateUI("status", statuses, "empty-status-message", "status-items", item => `<div class="item"><span>Order #${item.id}</span><span>${item.delivery_status}</span></div>`);
+            updateUI("favorite", favorites, "empty-favorite-message", "favorite-items", item => `<div class="item"><span>${item.name}</span></div>`);
+        });
+
+        function showSection(sectionId, element) {
+            document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+
+            document.querySelectorAll('.sidebar a').forEach(link => link.classList.remove('active'));
+            element.classList.add('active');
+        }
+
+        function showNotifications(element) {
+            alert('Showing notifications...');
+            document.querySelectorAll('.top-bar .tooltip img').forEach(icon => icon.classList.remove('active'));
+            element.classList.add('active');
+        }
+
+        function logout(element) {
+            alert('Logging out...');
+            document.querySelectorAll('.top-bar .tooltip img').forEach(icon => icon.classList.remove('active'));
+            element.classList.add('active');
+        }
+    </script>
+</body>
+</html>

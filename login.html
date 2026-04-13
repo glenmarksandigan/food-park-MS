@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #047409; /* Green background */
+        }
+        .left-section {
+            flex: 1;
+            background-image: url(https://lh3.googleusercontent.com/p/AF1QipM1LFmBmTAyqtnVsAxFvxvP789ask9GyGewi3wI=s680-w680-h510); 
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2em;
+            text-align: center;
+        }
+        .right-section {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .login-form {
+            background-color: #F6F7EB; 
+            padding: 20px;
+            border-radius: 40px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            height: 500px;
+        }
+        .login-form h2 {
+            text-align: center;
+        }
+        .form-control {
+            width: 92.7%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #0c0c0c;
+            border-radius: 4px;
+            border-top: black;
+            border-left: black;
+            border-right: black;
+        }
+        .login-button {
+            width: 100%;
+            padding: 20px;
+            background-color: #FFA500; /* Orange button */
+            border: none;
+            border-radius: 40px;
+            color: rgb(3, 3, 3);
+            cursor: pointer;
+            margin: 30px 0;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 1.5em;
+        }
+        .login-button:hover{
+            background-color: orangered;
+        }
+        .social-login {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .social-button {
+            flex: 1;
+            margin: 5px;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+        }
+        .google-button {
+            background-color: #020202; 
+            padding: 17px;
+            border-radius: 40px;
+            margin-bottom: 35px;
+        }
+        .google-button:hover{
+            background-color: #08b111;
+        }
+        .facebook-button {
+            background-color: #020202; 
+            padding: 17px;
+            border-radius: 40px;
+            margin-bottom: 35px;
+        }
+        .facebook-button:hover{
+          background-color: #1905ac;
+        }
+        .nav {
+            font-size: large;
+    position: absolute; 
+    top: 1%; 
+    left: 51%; 
+    color: #F6F7EB;
+        }
+        h2{
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .nav1{
+            margin-bottom: 20px;
+        }
+        
+        a{
+           color: #080606;
+         margin-left: 35px;
+           margin-top: 10px;
+           font-size: 1.1em;
+        }
+        a:hover{
+            color: #1905ac;
+        }
+        .social-button google-button:hover{
+            background-color: #047409;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="left-section">
+        
+    </div>
+
+    <div class="right-section">
+        <div class="nav">Home</div>
+        <form class="login-form">
+            <h2>Login</h2>
+            
+            <input type="email" class="form-control" placeholder="Email" required>
+            <input type="password" class="form-control" placeholder="Password" required>
+            <button type="submit" class="login-button">Login</button>
+            <div class="nav1">  ______________________or____________________</div>
+            <div class="social-login">
+                <button class="social-button google-button">Login in Google</button>
+                <button class="social-button facebook-button">Login in Facebook</button>
+            </div>
+            <div class="nav2">
+                <a href="createAccount.html" >Create an account</a>     <a href="#">Forgot Password?</a>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

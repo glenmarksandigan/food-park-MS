@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #047409; /* Green background */
+        }
+        
+        .left-section {
+            flex: 1;
+            background-image: url(https://lh3.googleusercontent.com/p/AF1QipM1LFmBmTAyqtnVsAxFvxvP789ask9GyGewi3wI=s680-w680-h510); 
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2em;
+            text-align: center;
+        }
+        
+        .right-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .top-navbar {
+            width: 90%;
+            background-color: #047409;
+            padding: 20px 0; 
+            display: flex;
+            justify-content: space-between;
+            
+            height: 15vh;
+        }
+        
+        .top-navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 5px; 
+        }
+        
+        .top-navbar ul li a {
+            color: #F6F7EB;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .top-navbar ul li a:hover {
+            color: #d3cbcb;
+        }
+        
+        .login-form {
+            background-color: #F6F7EB; 
+            padding: 20px;
+            border-radius: 40px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            height: 550px;
+            text-align: center;
+            margin-bottom: 12%;
+        }
+        
+        .login-form h2 {
+            text-align: center;
+        }
+        
+        .form-control {
+            width: 92.7%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #0c0c0c;
+            border-radius: 4px;
+            border-top: black;
+            border-left: black;
+            border-right: black;
+        }
+        
+        .login-button {
+            width: 100%;
+            padding: 20px;
+            background-color: #FFA500; 
+            border: none;
+            border-radius: 40px;
+            color: rgb(3, 3, 3);
+            cursor: pointer;
+            margin: 30px 0;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 1.5em;
+        }
+        
+        .login-button:hover {
+            background-color: orangered;
+        }
+        
+        .social-login {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .social-button {
+            flex: 1;
+            margin: 5px;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+        }
+        
+        .google-button {
+            background-color: #020202; 
+            padding: 17px;
+            border-radius: 40px;
+            margin-bottom: 35px;
+        }
+        
+        .google-button:hover {
+            background-color: #08b111;
+        }
+        
+        .facebook-button {
+            background-color: #020202; 
+            padding: 17px;
+            border-radius: 40px;
+            margin-bottom: 35px;
+        }
+        
+        .facebook-button:hover {
+            background-color: #1905ac;
+        }
+        
+        .nav1 {
+            margin-bottom: 20px;
+        }
+        
+        a {
+            color: #080606;
+            margin-left: 35px;
+            margin-top: 10px;
+            font-size: 1.1em;
+        }
+        
+        a:hover {
+            color: #1905ac;
+        }
+
+        .icon-container {   
+            display: flex;
+            position: absolute;
+            justify-content: flex-end;
+            margin: 0;
+            margin-left: 37%;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            margin-left: 5px;
+        }
+
+        .tooltip img {
+            width: 25px;
+            height: 25px;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            color: #ffffff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            top: 125%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="left-section">
+        
+    </div>
+
+    <div class="right-section">
+        <div class="top-navbar">
+            <ul>
+                <li><a href="#" onclick="alert('Home page')">Home</a></li>
+                <li><a href="#" onclick="alert('About us page')">About Us</a></li>
+                <li><a href="#" onclick="alert('Contact us page')">Contact Us</a></li>
+            </ul>
+            <div class="icon-container">
+                <div class="tooltip">
+                    <a href="#" onclick="alert('Notifications')"><img src="https://cdn-icons-png.flaticon.com/128/3602/3602123.png" alt="Notifications">
+                    <span class="tooltiptext">Notifications</span></a>
+                </div>
+                <div class="tooltip">
+                    <a href="#" onclick="alert('Profile')"><img src="https://cdn-icons-png.flaticon.com/128/1144/1144760.png" alt="Logout" >
+                    <span class="tooltiptext">Profile</span></a>
+                </div>
+            </div>
+        </div>
+        <form class="login-form" action="login.php" method="POST">
+            <h2>Login</h2>
+            <input type="email" class="form-control" placeholder="Email" name="email">
+            <input type="password" class="form-control" placeholder="Password" name="password">
+            <button type="submit" class="login-button">Login</button>
+            <div class="nav1">  ______________________or____________________</div>
+            <div class="social-login">
+                <button class="social-button google-button">Login in Google</button>
+                <button class="social-button facebook-button">Login in Facebook</button>
+            </div>
+            <div class="nav2">
+                <a href="createAccount.html">Create an account</a>
+                <a href="#">Forgot Password?</a>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

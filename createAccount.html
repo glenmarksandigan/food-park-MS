@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create an Account</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            height: 100vh;
+        }
+        .form-container {
+            width: 90%; 
+            max-width: 500px;
+            background-color: rgba(255, 255, 255, 0.9); 
+            padding: 20px;
+            border-radius: 10px; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
+        }
+
+        .left-section {
+            flex: 1;
+            background-image: url(https://lh3.googleusercontent.com/p/AF1QipM1LFmBmTAyqtnVsAxFvxvP789ask9GyGewi3wI=s680-w680-h510);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .right-section {
+            flex: 1;
+            background-color: #047409; 
+            padding-left: 80px;
+            padding-right: 80px;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            color: #2d383a;
+        }
+
+        .form-group {
+            margin: 15px 5px; 
+        }
+
+        .form-group input {
+            width: 96.5%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 1.5em;
+            border-top: black;
+            border-left: black;
+            border-right: black;
+        }
+
+        .name-container {
+            display: flex; 
+            justify-content: space-between;
+            margin: 20px 5px; 
+        }
+
+        .name-container input {
+            width: 45%;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 1.5em;
+            border-top: black;
+            border-left: black;
+            border-right: black;
+        }
+
+        .border1 {
+            border: 0;
+        }
+
+        .submit-button:hover {
+            background-color: orangered;
+            transform: scale(1.05); 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .back-ground {
+            background-color: white;
+            height: 100%;
+            border-radius: 30px;
+        }
+
+        .form-iso {
+            text-align: center;
+        }
+
+        .submit-button {
+            font-size: 2em;
+            padding: 10px 20px; 
+            border: 2px solid #000; 
+            border-radius: 30px; 
+            background-color: orange; 
+            cursor: pointer; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="left-section"></div>
+    <div class="right-section">
+        <div class="back-ground">
+            <h1>Create an Account</h1>
+            <form action="connect.php" method="POST">
+                <div class="border1">
+                    <div class="name-container">
+                        <input type="text" placeholder="First Name"  name="firstname">
+                        <input type="text" placeholder="Last Name" name="lastname">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Address" name="address">
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Phone Number" name="phonenumber">
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email" name="email">
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" name="password">
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Confirm Password" name="confirmpassword">
+                </div>
+                <div class="form-iso">
+                    <button type="submit" class="submit-button">Create Account</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
